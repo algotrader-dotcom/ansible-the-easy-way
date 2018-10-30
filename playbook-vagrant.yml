@@ -1,0 +1,18 @@
+---
+- hosts: _vagrant
+  become: yes
+
+  vars_files:
+    - group_vars/vagrant.yml
+
+  pre_tasks:
+    - include: tasks/pre-tasks.yml
+
+  roles:
+    #- { role: sysadmin.common, tags: ['common'] }
+    - { role: sysadmin.nginx, tags: ['nginx'] }
+    #- { role: sysadmin.php7x, tags: ['php'] }
+
+  tasks:
+    #- include: tasks/post-tasks.yml
+
